@@ -1,12 +1,12 @@
 import { randomNormal } from "d3-random"
 
-export default class WavyCircle {
+export default class Circle {
   constructor(paper, settings) {
     this.paper = paper
 
     this.settings = {...{
       width: 800,
-      height: 800,
+      height: 600,
       seedSource: null
     }, ...settings }
   }
@@ -33,7 +33,7 @@ export default class WavyCircle {
     let randomX = randomNormal.source(seedSource)(paper.view.bounds.center.x, 100)()
     let randomY = randomNormal.source(seedSource)(paper.view.bounds.center.y, 100)()
 
-    let circle = new paper.Path.Circle({
+    new paper.Path.Circle({
       center: [randomX, randomY],
       radius: paper.view.bounds.width * 0.25,
       strokeWidth: 5,

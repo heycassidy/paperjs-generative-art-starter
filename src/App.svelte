@@ -1,11 +1,10 @@
 <script lang="ts">
   import PaperCanvas from './lib/PaperCanvas.svelte'
-
-  import WavyCircle from './sketches/WavyCircle.js'
+  import Circle from './sketches/Circle.js'
 </script>
 
 <PaperCanvas props={{
-  sketch: WavyCircle,
-  seed: 0.09182038
+  sketch: Circle,
+  // seed: 0.09182038
 }} />
 
