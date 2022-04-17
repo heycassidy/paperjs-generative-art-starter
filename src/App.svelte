@@ -1,10 +1,23 @@
 <script lang="ts">
   import PaperCanvas from './lib/PaperCanvas.svelte'
+  import PaperControls from './lib/PaperControls.svelte'
+  import Layout from './lib/Layout.svelte'
   import Circle from './sketches/Circle.js'
+  import globalStyles from './styles/global';
+
+  globalStyles()
 </script>
 
-<PaperCanvas props={{
-  sketch: Circle,
-  // seed: 0.09182038
-}} />
+
+
+<Layout>
+  <PaperCanvas props={{
+    sketch: Circle,
+    width: 4800,
+    height: 5600,
+    // seed: 0.09182038
+  }} />
+  <PaperControls />
+</Layout>
+
 

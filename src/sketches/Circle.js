@@ -5,8 +5,6 @@ export default class Circle {
     this.paper = paper
 
     this.settings = {...{
-      width: 800,
-      height: 600,
       seedSource: null
     }, ...settings }
   }
@@ -20,8 +18,6 @@ export default class Circle {
     paper.view.setViewSize(paperSize)
     paper.view.setCenter(paperSize.divide(2))
     paper.view.setScaling(1)
-
-    paper.view.element.parentElement.style.aspectRatio = width / height
   }
 
   draw() {
