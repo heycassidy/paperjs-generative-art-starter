@@ -3,11 +3,10 @@
 
   import paper from 'paper'
   import alea from 'seedrandom'
-import { start_hydrating } from 'svelte/internal';
   import { css } from '../../stitches.config'
 
   // override default props and deconstruct
-  const { sketch, width, height, seed } = {
+  let { sketch, width, height, seed } = {
     ...{
       sketch: undefined,
       width: 1024,
@@ -17,7 +16,7 @@ import { start_hydrating } from 'svelte/internal';
     ...props
   }
 
-  const setupPaper = (node) => {
+  const setupPaper = (node, props) => {
     // return false if no sketch function
     if (typeof sketch !== 'function') { return false }
 
@@ -28,12 +27,19 @@ import { start_hydrating } from 'svelte/internal';
     console.log(`seed used: ${seed}`)
     
     // draw sketch with specified seed source
-    new sketch(paper, {
+    sketch = new sketch(paper, {
       width, height,
       seedSource: alea(seed)
-    }).draw()
+    })
 
-    return {}
+    sketch.draw()
+
+    return {
+      update(props) {
+        sketch.clear()
+        sketch.draw()
+      }
+    }
   }
 
   const styles = css({
@@ -53,5 +59,5 @@ import { start_hydrating } from 'svelte/internal';
 </script>
 
 <div class={styles()}>
-  <canvas use:setupPaper />
+  <canvas use:setupPaper={props} />
 </div>

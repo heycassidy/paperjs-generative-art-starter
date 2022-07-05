@@ -1,3 +1,5 @@
 import { createStitches } from '@stitches/core';
 
-export const { css, globalCss } = createStitches();
+export const { css, globalCss } = createStitches({
+  utils: {},
+});

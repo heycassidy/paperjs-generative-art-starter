@@ -20,6 +20,10 @@ export default class Circle {
     paper.view.setScaling(1)
   }
 
+  clear() {
+    this.paper.project.clear()
+  }
+
   draw() {
     const paper = this.paper
     const { seedSource } = this.settings

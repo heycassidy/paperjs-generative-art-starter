@@ -1,15 +1,20 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   import { css } from '../../stitches.config'
 
   const styles = css({
-    // backgroundColor: 'gray',
-    // minWidth: '100%',
-    // height: '100%'
+    alignSelf: 'start',
   });
+
+
+  const dispatch = createEventDispatcher();
+
 </script>
 
 
 <div class={styles()}>
-  
+
+
+  <button on:click="{() => { dispatch('regenerate') }}">Regenerate</button>
   
 </div>

@@ -6,6 +6,12 @@
   import globalStyles from './styles/global';
 
   globalStyles()
+
+  let seed
+  
+  function updateSeed(event) {
+    seed = Math.random()
+  }
 </script>
 
 
@@ -15,9 +21,9 @@
     sketch: Circle,
     width: 4800,
     height: 5600,
-    // seed: 0.09182038
+    seed
   }} />
-  <Controls />
+  <Controls on:regenerate={updateSeed} />
 </Layout>
 
 
